@@ -7,6 +7,7 @@ import {
   AppSettings,
 } from '../types';
 import { analyzeEmergencyWithAI } from '../services/aiTriageService';
+import { getAssetUrl } from '../utils/assetUtils';
 import {
   Radio,
   Camera,
@@ -52,7 +53,7 @@ export const RapidSOSModal: React.FC<RapidSOSModalProps> = ({
     'DIABETIC_INSULIN',
     'TRAPPED',
   ]);
-  const [selectedImage, setSelectedImage] = useState<string>('/samples/flood.jpg');
+  const [selectedImage, setSelectedImage] = useState<string>(() => getAssetUrl('samples/flood.jpg'));
   const [isRecordingVoice, setIsRecordingVoice] = useState(false);
   const [voiceTranscript, setVoiceTranscript] = useState<string>('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -83,7 +84,7 @@ export const RapidSOSModal: React.FC<RapidSOSModalProps> = ({
       setDescription(
         'Water has reached 4.5 feet in our street and is rising through the floorboards. Trapped on second floor with elderly insulin-dependent patient. Need boat rescue before nightfall.'
       );
-      setSelectedImage('/samples/flood.jpg');
+      setSelectedImage(getAssetUrl('samples/flood.jpg'));
       setSelectedVulnerabilities(['ELDERLY', 'DIABETIC_INSULIN', 'TRAPPED']);
       setVictimCount(3);
       setAddress('344 Bayou Bend Lane, Sector Alpha');
@@ -92,7 +93,7 @@ export const RapidSOSModal: React.FC<RapidSOSModalProps> = ({
       setDescription(
         'Masonry facade sheared off building. Two people trapped under heavy ceiling timbers in shop foyer. We smell strong sulfur/natural gas in the street.'
       );
-      setSelectedImage('/samples/earthquake.jpg');
+      setSelectedImage(getAssetUrl('samples/earthquake.jpg'));
       setSelectedVulnerabilities(['TRAPPED', 'CRUSH_INJURY']);
       setVictimCount(2);
       setAddress('710 Metro Plaza Blvd, Sector Central');
@@ -101,7 +102,7 @@ export const RapidSOSModal: React.FC<RapidSOSModalProps> = ({
       setDescription(
         'Dense smoke and falling embers surrounding residential cul-de-sac. Downed fir tree blocking sole exit road. Trapped with 4 people including asthmatic child coughing heavily.'
       );
-      setSelectedImage('/samples/wildfire.jpg');
+      setSelectedImage(getAssetUrl('samples/wildfire.jpg'));
       setSelectedVulnerabilities(['TRAPPED', 'INFANT_PEDIATRIC']);
       setVictimCount(4);
       setAddress('18 Canyon Pine Ridge, Sector Foothill');
@@ -491,7 +492,7 @@ export const RapidSOSModal: React.FC<RapidSOSModalProps> = ({
                     type="button"
                     className="btn btn-secondary"
                     style={{ fontSize: '0.75rem', padding: '6px 10px' }}
-                    onClick={() => setSelectedImage('/samples/flood.jpg')}
+                    onClick={() => setSelectedImage(getAssetUrl('samples/flood.jpg'))}
                   >
                     Flood Sample
                   </button>
@@ -499,7 +500,7 @@ export const RapidSOSModal: React.FC<RapidSOSModalProps> = ({
                     type="button"
                     className="btn btn-secondary"
                     style={{ fontSize: '0.75rem', padding: '6px 10px' }}
-                    onClick={() => setSelectedImage('/samples/earthquake.jpg')}
+                    onClick={() => setSelectedImage(getAssetUrl('samples/earthquake.jpg'))}
                   >
                     Quake Sample
                   </button>

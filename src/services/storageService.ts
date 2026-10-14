@@ -5,6 +5,7 @@ import {
   AppSettings,
   ResourceNeed,
 } from '../types';
+import { getAssetUrl } from '../utils/assetUtils';
 
 const STORAGE_KEYS = {
   SCENARIO_ID: 'resqai_active_scenario_id',
@@ -123,7 +124,7 @@ export const PRESET_SCENARIOS: DisasterScenario[] = [
         },
         emergencyType: 'FLOOD',
         rawDescription: 'Floodwater entered ground floor, now up to 5 feet and rising fast. Trapped on second floor balcony with 76-year-old grandmother who is diabetic and running out of refrigerated insulin. Power is completely out.',
-        imageUrl: '/samples/flood.jpg',
+        imageUrl: getAssetUrl('samples/flood.jpg'),
         vulnerabilities: ['ELDERLY', 'DIABETIC_INSULIN', 'TRAPPED'],
         victimCount: 3,
         status: 'PENDING_TRIAGE',
@@ -164,7 +165,7 @@ export const PRESET_SCENARIOS: DisasterScenario[] = [
         },
         emergencyType: 'FLOOD',
         rawDescription: 'Two electrical technicians stranded on roof of industrial transformer substation. Ground transformer sparked earlier and went dark. Water is 4 feet around the perimeter.',
-        imageUrl: '/samples/flood.jpg',
+        imageUrl: getAssetUrl('samples/flood.jpg'),
         vulnerabilities: ['TRAPPED'],
         victimCount: 2,
         status: 'PENDING_TRIAGE',
@@ -368,7 +369,7 @@ export const PRESET_SCENARIOS: DisasterScenario[] = [
         },
         emergencyType: 'STRUCTURAL_COLLAPSE',
         rawDescription: 'Brick building facade collapsed into street. Snapped utility pole with tangled wires. A shopkeeper is pinned under masonry doorway with leg crush injury. Strong smell of natural gas in the alley.',
-        imageUrl: '/samples/earthquake.jpg',
+        imageUrl: getAssetUrl('samples/earthquake.jpg'),
         vulnerabilities: ['TRAPPED', 'CRUSH_INJURY'],
         victimCount: 2,
         status: 'PENDING_TRIAGE',
@@ -443,7 +444,7 @@ export const PRESET_SCENARIOS: DisasterScenario[] = [
         },
         emergencyType: 'WILDFIRE',
         rawDescription: 'Dense orange smoke has enveloped our ranch. Downed tree blocking the driveway. Trapped with 4 family members including an asthmatic child coughing violently. We can see flame front through the trees 400 yards away.',
-        imageUrl: '/samples/wildfire.jpg',
+        imageUrl: getAssetUrl('samples/wildfire.jpg'),
         vulnerabilities: ['TRAPPED', 'INFANT_PEDIATRIC'],
         victimCount: 4,
         status: 'PENDING_TRIAGE',

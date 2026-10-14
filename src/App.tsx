@@ -6,6 +6,7 @@ import {
   AppSettings,
 } from './types';
 import { StorageService, PRESET_SCENARIOS } from './services/storageService';
+import { getAssetUrl } from './utils/assetUtils';
 import { Navbar } from './components/Navbar';
 import { TelemetryBar } from './components/TelemetryBar';
 import { CommandMap } from './components/CommandMap';
@@ -226,7 +227,7 @@ export function App() {
           },
           emergencyType: 'FLOOD',
           rawDescription: 'CRITICAL SECONDARY BREACH: Water surging 6 feet across residential block. Family of 4 stranded on car roof in fast current.',
-          imageUrl: '/samples/flood.jpg',
+          imageUrl: getAssetUrl('samples/flood.jpg'),
           vulnerabilities: ['TRAPPED', 'INFANT_PEDIATRIC'],
           victimCount: 4,
           status: 'PENDING_TRIAGE',
@@ -266,7 +267,7 @@ export function App() {
           },
           emergencyType: 'FLOOD',
           rawDescription: 'Water flowing into living room through broken storm door. 80-year-old bedridden grandfather unable to climb stairs.',
-          imageUrl: '/samples/flood.jpg',
+          imageUrl: getAssetUrl('samples/flood.jpg'),
           vulnerabilities: ['ELDERLY', 'MOBILITY_IMPAIRED', 'TRAPPED'],
           victimCount: 2,
           status: 'PENDING_TRIAGE',
@@ -350,7 +351,7 @@ export function App() {
           },
           emergencyType: 'STRUCTURAL_COLLAPSE',
           rawDescription: 'Seismic aftershock collapsed concrete highway barrier onto city bus. 6 passengers trapped inside with shattered glass.',
-          imageUrl: '/samples/earthquake.jpg',
+          imageUrl: getAssetUrl('samples/earthquake.jpg'),
           vulnerabilities: ['TRAPPED', 'CRUSH_INJURY'],
           victimCount: 6,
           status: 'PENDING_TRIAGE',
